@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "io.husaynhakeem.tradur"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 30
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
