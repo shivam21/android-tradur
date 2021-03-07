@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import io.husaynhakeem.tradurlibrary.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,7 @@ class TradurTextView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
-) : androidx.appcompat.widget.AppCompatTextView(context, attrs, defStyleAttr), View.OnClickListener {
+) : AppCompatTextView(context, attrs, defStyleAttr), View.OnClickListener {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private val translator = TextTranslator()
@@ -87,11 +88,13 @@ class TradurTextView @JvmOverloads constructor(
             mode == Mode.TRANSLATED -> {
                 mode = Mode.ORIGINAL
                 translatableTextView.text = original
+                onTranslationTextChange(original)
                 this@TradurTextView.text = preTranslation
             }
             translation.isNotBlank() -> {
                 mode = Mode.TRANSLATED
                 translatableTextView.text = translation
+                onTranslationTextChange(translation)
                 this@TradurTextView.text = postTranslation
             }
             else -> translateText()
@@ -119,9 +122,16 @@ class TradurTextView @JvmOverloads constructor(
                 // Translation successful
                 mode = Mode.TRANSLATED
                 translatableTextView.text = translation
+                onTranslationTextChange(translation)
                 this@TradurTextView.text = postTranslation
             }
         }
+    }
+
+    private var onTranslationTextChange: (String) -> Unit = {}
+
+    fun addOnTranslationChangeListener(onTextChange: (String) -> Unit) {
+        onTranslationTextChange = onTextChange
     }
 
     private enum class Mode {

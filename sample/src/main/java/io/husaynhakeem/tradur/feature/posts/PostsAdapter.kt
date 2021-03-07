@@ -28,6 +28,9 @@ class PostsAdapter(private val posts: Array<Post>) : RecyclerView.Adapter<PostsA
             itemView.postUsername.text = post.username
             itemView.postDescription.text = post.description
             itemView.postDate.text = post.publicationDate
+            itemView.trader_text.addOnTranslationChangeListener {
+                posts[adapterPosition].description = it
+            }
         }
     }
 }

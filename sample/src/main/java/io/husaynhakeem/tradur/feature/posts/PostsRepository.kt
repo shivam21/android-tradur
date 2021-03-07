@@ -8,6 +8,11 @@ object PostsRepository {
     fun get(): Array<Post> = arrayOf(
             Post(
                     imageUrl = "https://cdn.pixabay.com/photo/2017/11/12/13/37/forest-2942477_1280.jpg",
+                    username = "englishPerson",
+                    description = "My favorite things in life don’t cost any money. It’s really clear that the most precious resource we all have is time.",
+                    publicationDate = "1 hour ago"),
+            Post(
+                    imageUrl = "https://cdn.pixabay.com/photo/2017/11/12/13/37/forest-2942477_1280.jpg",
                     username = "frenchPerson",
                     description = "Mes choses préférées dans la vie ne coûtent pas d'argent. Il est vraiment clair que la ressource la plus précieuse que nous avons tous est le temps.",
                     publicationDate = "1 hour ago"),

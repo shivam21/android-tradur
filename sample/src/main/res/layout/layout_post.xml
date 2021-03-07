@@ -57,6 +57,7 @@
             android:textColor="@color/gray_text" />
 
         <io.husaynhakeem.tradur.TradurTextView
+            android:id="@+id/trader_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/space_normal"
@@ -66,6 +67,7 @@
             android:textSize="@dimen/text_small"
             app:loading_text="@string/loading_text"
             app:pre_translation_text="@string/pre_translation_text"
+            app:post_translation_text="@string/post_translation_text"
             app:translate_field="@+id/postDescription"
             tools:text="Translate text" />
 

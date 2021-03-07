@@ -3,4 +3,5 @@
     <string name="pre_translation_text">See translation</string>
     <string name="loading_text">Translating…</string>
     <string name="post_date_translate_separator">•</string>
+    <string name="post_translation_text">See original</string>
 </resources>
