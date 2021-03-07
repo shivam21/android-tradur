@@ -22,7 +22,7 @@
         android:layout_marginTop="@dimen/space_normal"
         android:textColor="@color/black_text"
         android:textStyle="bold"
-        tools:text="husaynhakeem" />
+        tools:text="husaynhakee" />
 
     <TextView
         android:id="@+id/postDescription"
