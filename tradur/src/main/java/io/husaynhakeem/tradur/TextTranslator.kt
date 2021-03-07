@@ -39,7 +39,7 @@ internal class TextTranslator {
             return translate(translator, text)
         } catch (exception: Exception) {
             Log.e(TAG, "Failed to translate [$text]", exception)
-            return String.empty
+            return ""
         }
     }
 

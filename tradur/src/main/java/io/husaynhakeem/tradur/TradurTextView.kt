@@ -15,7 +15,7 @@ class TradurTextView @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
-) : TextView(context, attrs, defStyleAttr), View.OnClickListener {
+) : androidx.appcompat.widget.AppCompatTextView(context, attrs, defStyleAttr), View.OnClickListener {
 
     private val uiScope = CoroutineScope(Dispatchers.Main)
     private val translator = TextTranslator()
@@ -30,7 +30,7 @@ class TradurTextView @JvmOverloads constructor(
 
     // Possible values for the translatable TextView's text
     private val original: String by lazy { translatableTextView.text.toString() }
-    private var translation: String = String.empty
+    private var translation: String = ""
 
     // Possible values for TradurTextView's text
     private val loading: String
@@ -57,6 +57,7 @@ class TradurTextView @JvmOverloads constructor(
         setOnClickListener(this)
 
         this@TradurTextView.text = preTranslation
+        onTranslateTextClicked()
     }
 
     private fun TypedArray.getStringOrDefault(index: Int, defaultValResId: Int): String {
@@ -78,6 +79,10 @@ class TradurTextView @JvmOverloads constructor(
     }
 
     override fun onClick(view: View?) {
+        onTranslateTextClicked()
+    }
+
+    private fun onTranslateTextClicked() {
         when {
             mode == Mode.TRANSLATED -> {
                 mode = Mode.ORIGINAL
